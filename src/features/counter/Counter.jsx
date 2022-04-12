@@ -1,10 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement, reset, incrementByAmount } from './counterSlice';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const Counter = () => {
   const count = useSelector((state) => state.counter.count);
   const dispatch = useDispatch();
+  const navigate= useNavigate()
 
   const [incrementAmount, setIncrementAmount] = useState(0);
 
@@ -17,6 +20,8 @@ const Counter = () => {
 
   return (
     <section>
+        <button onClick={() => navigate('/')}>Go Home</button>
+       
       <p>{count}</p>
       <div>
         <button onClick={() => dispatch(increment())}>+</button>
